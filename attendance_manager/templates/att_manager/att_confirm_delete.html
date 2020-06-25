@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<title>Attendance Update Form</title>
+{% extends 'att_manager/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+<html>
+<body style="background-color : #ebebeb" >
+<div class="container">
+    <div style="background-color : white" class="jumbotron">
+    <h2>Are You sure you want to delete {{ user.employee_name }}'s Attendance?</h2>
+        <br>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Delete">
+    <a style="margin-left : 10px" class="btn btn-info" href="{% url 'attendance_list' %}">Cancel</a>
+</form>
+        <br>
+        <hr>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

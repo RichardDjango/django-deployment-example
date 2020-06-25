@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<title>Attendance</title>
+{% extends 'att_manager/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content %}
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-color : #f0f0f0">
+<div class="container">
+<div  class="jumbotron" style="padding : 10px;margin-top: 40px;background-color : white">
+    <h3>ATTENDANCE</h3>
+
+
+<div class="move">
+ <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-filter"></span> Filter</a> &nbsp;
+<a class="btn btn-default" href="#"><span class="glyphicon glyphicon-export"></span> Export</a> &nbsp;
+<a id="animation" class="btn btn-default" href="{% url 'create_entry' %}"><span class="glyphicon glyphicon-upload"></span> Upload</a> &nbsp;
+<a class="btn btn-default" href="{% url 'attendance_list' %}"><span class="glyphicon glyphicon-refresh"></span> Refresh</a> &nbsp;
+</div>
+    <form method="GET" class="form-inline my-2 my-lg-0">
+        <input style="width : 285px" type="search" placeholder="Search Here" class="form-control mr-sm-2" name="name" id="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <br>
+    <table class="art">
+        <tr>
+            <td style="text-align : center" class="colour" id="one"><h2 class="font-weight : bold">3</h2>Total Working Employees</td>
+            <td style="text-align : center" class="colour" id="two"><h2 class="font-weight : bold">5</h2>Total Number of Absentees</td>
+            <td style="text-align : center" class="colour" id="three"><h2 class="font-weight : bold">8</h2>Total Approved Leaves</td>
+            <td style="text-align : center" class="colour" id="four"><h2 class="font-weight : bold">15</h2>Half day Leave Requesters</td>
+            <td style="text-align : center" class="colour" id="five"><h2 class="font-weight : bold">22</h2>Total Late Corners</td>
+        </tr>
+    </table>
+<table class="content-table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>#</th>
+            <th>Employee Code</th>
+            <th>Employee</th>
+            <th>In Time</th>
+            <th>Out Time</th>
+            <th>Hours Worked</th>
+            <th>Over Time</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in attendance %}
+         <tr>
+            <td class="hove"><input type="checkbox"></td>
+             <td class="hove"><li></li></ol></td>
+            <td class="hove">{{ user.employee_code }}</td>
+            <td class="hove">{{ user.employee_name}}</td>
+            <td class="hove">{{ user.in_time }}</td>
+            <td class="hove">{{ user.out_time }}</td>
+            <td class="hove">{{ user.hours_worked }}</td>
+            <td class="hove">{{ user.over_time }}</td>
+             <td><a class="btn btn-info" href="{% url 'attendance_edit' pk=user.pk  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+             <td><a class="btn btn-danger" href="{% url 'attendance_delete' pk=user.pk  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+
+         </tr>
+    {% empty %}
+    <h3 class="alert alert-danger">The Attendance List is Empty</h3>
+    {% endfor %}
+
+    </tbody>
+</table>
+    <div id="forms" class="jumbotron" style="width : 50%;position : absolute;top : 0;right:0;display : none;">
+<form  method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input value="Add Entry" type="submit" class="btn btn-primary"> &nbsp;
+    <a class="btn btn-success" href="{% url 'attendance_list' %}">Cancel</a>
+
+</form>
+    </div>
+    </div>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<title>Attendance</title>
+{% extends 'att_manager/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+<html>
+<body style="background-color : #ebebeb" >
+<div class="container">
+    <div style="background-color : white" class="jumbotron">
+    <h2>Add New Attendance</h2>
+<form method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input value="Add Entry" type="submit" class="btn btn-primary"> &nbsp;
+    <a class="btn btn-success" href="{% url 'attendance_list' %}">Cancel</a>
+
+</form>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

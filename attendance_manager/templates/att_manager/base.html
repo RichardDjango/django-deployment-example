@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    jquery hamburger animation-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--    jquery-->
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Base Page</title>
+
+    <style>
+    *{
+      box-sizing : border-box;
+      font-family: 'Varela Round', sans-serif;
+
+    }
+
+    a{
+        text-decoration : none ;
+    }
+
+ body{
+      margin : 0;
+    }
+
+  nav{
+    border-radius : 2%;
+    position: fixed;
+    top : 0;
+    left : 0;
+    width : 250px;
+    height : 100%;
+    background-color : #1c68ba;
+    display : flex;
+    flex-direction : column;
+    align-items : left;
+    justify-items : center;
+    border-radius : 0 35px 35px 0;
+    }
+
+
+    main{
+        margin-left : 250px;
+        padding : 10px;
+    }
+
+    nav a{
+        display : inline-block;
+        text-decoration : none;
+        padding : 2px 15px;
+        margin-top : 30px;
+        font-size : 1.0em;
+        color : #edf1f5;
+        font-weight : bold;
+        letter-spacing : 0.05em;
+    }
+
+    nav a:hover{
+    color : black;
+    }
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img style="height:75px;width:153px;margin-top:-40px" src="http://rightsolutions.ae/assets/right-logo-e06f3073ab5929f9441f5f9ae4862394cb6495de483e058b28487163cabb8e42.png" alt="">
+    <br>
+    <br>
+    <a  href="#"><span class="glyphicon glyphicon-user"></span> Employee</a>
+    <a  href="#"><span class="glyphicon glyphicon-wrench"></span> Service Request</a>
+    <a  href="#"><span class="glyphicon glyphicon-usd"></span> Payroll</a>
+    <a  href="#"><span class="glyphicon glyphicon-remove"></span> Leave</a>
+    <a  href="{% url 'attendance_list' %}"><span class="glyphicon glyphicon-ok"></span> Attendance</a>
+    <a  href="#"><span class="glyphicon glyphicon-file"></span> Documents</a>
+    <a  href="#"><span class="glyphicon glyphicon-stats"></span> Reports</a>
+
+</nav>
+<div  style="background-color : white;width:1534px;height:60px;margin-top:-10px;">
+    <a  style="display : inline-block;float:right;margin-top : 20px;margin-right : 25px;color : black" href="#">
+          <span style="font-size : 23px" class="glyphicon glyphicon-align-justify"></span>
+        </a>
+        </div>
+
+<div>
+
+</div>
+
+<main>
+    {% block content %}
+
+    {% endblock %}
+</main>
+<script src="{% static 'js/attendance.js' %}" ></script>
+</body>
+
+
+</html>
+
+
