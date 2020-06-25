@@ -1,5 +1,6 @@
 # django-deployment-example
 
+Some Screenshots of what i have developed have been uploaded  in order to have a basic view of how the design actually looks like.
 
 python version : 3.7.4
 Django version : 3.0.8
