@@ -15,12 +15,10 @@ class CreateEntryView(CreateView):
     template_name = 'att_manager/create_form.html'
 
 
-class AttendanceView(CreateView,ListView):
+class AttendanceView(ListView):
     template_name = 'att_manager/attendance_list.html'
     model = Attendance
     context_object_name = 'attendance'
-    form_class = AttendanceForm
-
 
     def get_queryset(self):
         attendance = Attendance.objects.all()

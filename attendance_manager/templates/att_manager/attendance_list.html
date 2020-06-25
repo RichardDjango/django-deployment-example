@@ -2,7 +2,6 @@
 <title>Attendance</title>
 {% extends 'att_manager/base.html' %}
 {% load static %}
-{% load bootstrap4 %}
 
 {% block content %}
 <head>
@@ -72,16 +71,7 @@
 
     </tbody>
 </table>
-    <div id="forms" class="jumbotron" style="width : 50%;position : absolute;top : 0;right:0;display : none;">
-<form  method="POST">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <input value="Add Entry" type="submit" class="btn btn-primary"> &nbsp;
-    <a class="btn btn-success" href="{% url 'attendance_list' %}">Cancel</a>
-
-</form>
-    </div>
-    </div>
+</div>
 </div>
 </body>
 {% endblock %}
