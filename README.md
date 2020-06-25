@@ -23,6 +23,7 @@ python manage.py runserver
 
 After you have clicked and opened the link.The first thing you will see is a navbar and followed by alot of options with a blank page
 1)click attendance to see the details and the table filled with the list of items.
+3)Click upload button to add attendance
 2)I have tried to do the exact copy of the design and also the functionalities
 3)Class based Views have been used.
 4)Search,Create,Read,update,delete(Not specified in the requirements but i have implemented it)
