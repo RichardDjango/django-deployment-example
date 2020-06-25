@@ -29,7 +29,7 @@
     <br>
     <table class="art">
         <tr>
-            <td style="text-align : center" class="colour" id="one"><h2 class="font-weight : bold">3</h2>Total Working Employees</td>
+            <td  style="text-align : center" class="colour" id="one"><h2 class="font-weight : bold">3</h2>Total Working Employees</td>
             <td style="text-align : center" class="colour" id="two"><h2 class="font-weight : bold">5</h2>Total Number of Absentees</td>
             <td style="text-align : center" class="colour" id="three"><h2 class="font-weight : bold">8</h2>Total Approved Leaves</td>
             <td style="text-align : center" class="colour" id="four"><h2 class="font-weight : bold">15</h2>Half day Leave Requesters</td>
@@ -55,15 +55,15 @@
     {% for user in attendance %}
          <tr>
             <td class="hove"><input type="checkbox"></td>
-             <td class="hove"><li></li></ol></td>
+             <td class="hove">{{ forloop.counter }}</td>
             <td class="hove">{{ user.employee_code }}</td>
             <td class="hove">{{ user.employee_name}}</td>
             <td class="hove">{{ user.in_time }}</td>
-            <td class="hove">{{ user.out_time }}</td>
-            <td class="hove">{{ user.hours_worked }}</td>
-            <td class="hove">{{ user.over_time }}</td>
-             <td><a class="btn btn-info" href="{% url 'attendance_edit' pk=user.pk  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
-             <td><a class="btn btn-danger" href="{% url 'attendance_delete' pk=user.pk  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+            <td style="text-align : center" class="hove">{{ user.out_time }}</td>
+            <td style="padding-left : 60px" class="hove">{{ user.hours_worked }}</td>
+            <td style="padding-left : 48px" class="hove">{{ user.over_time }}</td>
+             <td ><a class="btn btn-info" href="{% url 'attendance_edit' pk=user.pk  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+             <td style="padding-left : 20px"><a class="btn btn-danger" href="{% url 'attendance_delete' pk=user.pk  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
 
          </tr>
     {% empty %}
